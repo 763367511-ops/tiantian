@@ -60,7 +60,7 @@ body{font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;background
 <div class="page-header">
   <div class="label">📖 点击单词即可朗读</div>
   <h1>天天 单词朗读</h1>
-  <div class="sub">8个分类 · 共10个单词 · 点击朗读 · 慢速练习</div>
+  <div class="sub">8个分类 · 共11个单词 · 点击朗读 · 慢速练习</div>
 </div>
 <div class="search-wrap">
   <span class="search-icon">🔍</span>
@@ -88,7 +88,7 @@ body{font-family:'Microsoft YaHei','PingFang SC',system-ui,sans-serif;background
 </div>
 <script>
 const catMeta={"c0": {"label": "图1", "color": "#2B6CB0", "bg": "#ebf4ff"}, "c1": {"label": "图2", "color": "#6B46C1", "bg": "#f0ebfa"}, "c2": {"label": "图3", "color": "#276749", "bg": "#e6f4ed"}, "c3": {"label": "图4", "color": "#C05621", "bg": "#fdf0e6"}, "c4": {"label": "图5", "color": "#97266D", "bg": "#fce4f0"}, "c5": {"label": "图7", "color": "#B7791F", "bg": "#fef8e6"}, "c6": {"label": "图8", "color": "#0987A0", "bg": "#e6fbff"}, "c7": {"label": "图9", "color": "#9B2C2C", "bg": "#fdeaea"}};
-const words={"c0": [{"word": "vi", "ph": "/vaɪ/", "mn": "罗马数字六；六", "ic": "6️⃣"}], "c1": [{"word": "mwl", "ph": "", "mn": "", "ic": "📖"}], "c2": [{"word": "if", "ph": "/ɪf/", "mn": "如果；是否", "ic": "❓"}], "c3": [{"word": "ta", "ph": "/tɑː/", "mn": "谢谢（英式口语）", "ic": "🙏"}], "c4": [{"word": "is", "ph": "/ɪz/", "mn": "是（be的第三人称单数现在式）", "ic": "✅"}, {"word": "villa", "ph": "/ˈvɪl.ə/", "mn": "别墅；度假别墅", "ic": "🏡"}], "c5": [{"word": "hi", "ph": "/haɪ/", "mn": "嗨；你好", "ic": "👋"}], "c6": [{"word": "ni", "ph": "/niː/", "mn": "尼（姓氏/地名用字）", "ic": "📖"}], "c7": [{"word": "fii", "ph": "/ˈfiː.iː/", "mn": "外国机构投资者（FII）", "ic": "📖"}, {"word": "mm", "ph": "/m/", "mn": "毫米；嗯（表示思考或同意）", "ic": "📏"}]};
+const words={"c0": [{"word": "ie", "ph": "/ˌaɪˈiː/", "mn": "也就是说；即", "ic": "📖"}, {"word": "vi", "ph": "/vaɪ/", "mn": "六（罗马数字VI）", "ic": "6️⃣"}], "c1": [{"word": "mwl", "ph": "", "mn": "", "ic": "📖"}], "c2": [{"word": "jif", "ph": "/dʒɪf/", "mn": "极短时间；片刻", "ic": "⏱️"}], "c3": [{"word": "ta", "ph": "/tɑː/", "mn": "谢谢（英式口语）", "ic": "🙏"}], "c4": [{"word": "iw", "ph": "/ˌaɪˈdʌb.əl.juː/", "mn": "（缩写）岛民；岛屿网站", "ic": "📖"}, {"word": "sf", "ph": "/ˌesˈef/", "mn": "科幻（science fiction 的缩写）", "ic": "🚀"}], "c5": [{"word": "sf", "ph": "/ˌesˈef/", "mn": "科幻（science fiction 的缩写）", "ic": "🚀"}], "c6": [{"word": "ni", "ph": "/niː/", "mn": "尼（日本佛教宗派名）", "ic": "📖"}], "c7": [{"word": "ia", "ph": "/ˌaɪˈeɪ/", "mn": "（缩写）互联网档案馆；国际会计师", "ic": "📖"}, {"word": "mm", "ph": "/m/", "mn": "毫米；嗯（表示思考或同意）", "ic": "📏"}]};
 const anims=['animation:bounce 0.8s infinite','animation:spin 1s linear infinite','animation:pulse 0.7s infinite','animation:float 1.2s infinite','animation:shake 0.5s infinite','animation:wave 0.8s infinite','animation:swing 1s infinite'];
 let currentCat=Object.keys(catMeta)[0],currentWord=null,animTimer=null;
 function playWord(rate){if(!currentWord)return;const au=new Audio('https://dict.youdao.com/dictvoice?audio='+encodeURIComponent(currentWord.word)+'&type=1');au.playbackRate=rate;au.play().catch(()=>{if('speechSynthesis' in window){const u=new SpeechSynthesisUtterance(currentWord.word);u.lang='en-US';u.rate=rate;speechSynthesis.speak(u);}});}
